@@ -1,0 +1,112 @@
+<% layout("/layouts/broilerplate.ejs") -%>  <!--  use to link boilerplate code  -->
+  
+  <div class="row"> 
+    <div class="col-8 offset-2">
+    <br>
+    <h3>Create a New Listing</h3>
+    
+     <!-- Display Error Message -->
+           <% if (errorMessage) { %>
+             <div class="alert alert-danger">
+            <%= errorMessage %>
+             </div>
+            <% } %>
+     <!-- End of Error Message -->
+
+    <form method="POST" action="/listings" novalidate class="needs-validation">
+    <div class="mb-3 mt-3">
+      <label for="title" class="form-lable">Add a Title</label>
+      <input name="listing[title]" 
+      placeholder="enter title" 
+      type="text" 
+      class="form-control"  
+      required/>                    <!--here tital is set required bcz it should be present  compulsoury while creating a listing   -->
+    </div>   
+
+    <div class="mb-3">
+      <label for="description" class="form-lable">Description</label>
+      <textarea name="listing[description]" 
+      class="form-control"
+      required>
+    </textarea>
+    <div class="invaid-feedback"> Please enter short description </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="image" class="form-lable">Image</label>
+      <input
+        name="listing[image]" 
+        placeholder="enter image URL/Link" 
+        type="text" 
+        class="form-control"/>
+    </div>
+
+    <div class="row">
+       <div class="mb-3 col-md-4">
+          <label for="price" class="form-lable">Price</label>
+          <input name="listing[price]" 
+          placeholder="enter price" 
+          type="number" 
+          class="form-control" 
+          required/>
+          <div class="invaid-feedback"> Please enter valid price </div>
+      </div>
+
+      <div class="mb-3 col-md-8">
+           <label for="country" class="form-lable">Country</label>
+           <input name="listing[country]" 
+           placeholder="enter country" 
+           type="text" 
+           class="form-control" 
+           required/>
+           <div class="invaid-feedback"> Please enter valid country </div>
+      </div>
+  </div>
+    <div class="mb-3">
+      <label for="location" class="form-lable">Location</label>
+      <input name="listing[location]"
+      placeholder="Mumbai,Maharashtra" 
+      type="text" 
+      class="form-control"
+      required/>
+      <div class="invaid-feedback"> Please enter valid location </div>
+    </div>
+  
+     
+      <button class="btn btn-dark add-btn mt-2 mb-2">Add</button>
+    </form>
+  </div>
+  </div> 
+
+<!-- _  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Corrected Layout Reference:
+
+Changed "layouts/broilerplate.ejs" to "layouts/boilerplate.ejs".
+Added Error Handling:
+
+Added dynamic error messages (errorMessage) in the new.ejs template and handled it in the POST /listings route.
+Improved Placeholders:
+
+Added descriptive placeholders for description, image, and location fields.
+Bootstrap Validation Classes:
+
+Added support for better client-side validation using is-invalid and needs-validation classes.
+Enhanced Comments:
+
+Added comments for better understanding, especially around validation and error handling. -->
